@@ -980,11 +980,8 @@ public:
 		if ( m_pTexture2->texture_number == 0 ) {
 			m_notfound2 = m_pTexture2;
 
-			{
-				StringOutputStream name( 256 );
-				name << GlobalRadiant().getAppPath() << "bitmaps/" << ( IsDefault() ? "notex.png" : "shadernotex.png" );
-				m_pTexture2 = GlobalTexturesCache().capture( LoadImageCallback( 0, loadBitmap ), name.c_str() );
-			}
+			const auto name = StringStream( GlobalRadiant().getAppPath(), "bitmaps/", ( IsDefault() ? "notex.png" : "shadernotex.png" ) );
+			m_pTexture2 = GlobalTexturesCache().capture( LoadImageCallback( 0, loadBitmap ), name );
 		}
 
 		realiseLighting();
@@ -1674,7 +1671,7 @@ void BuildShaderList( TextInputStream& shaderlist ){
 	for( const char* token; tokeniser.nextLine(), token = tokeniser.getToken(); )
 	{
 		// each token should be a shader filename
-		shaderFile ( token );
+		shaderFile( token );
 		if( !path_extension_is( token, g_shadersExtension ) )
 			shaderFile << '.' << g_shadersExtension;
 

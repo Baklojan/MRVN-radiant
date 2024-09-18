@@ -211,7 +211,6 @@ void HomePaths_Realise(){
 				FreeLibrary( shfolder );
 			}
 			if ( SUCCEEDED( SHGetFolderPath( NULL, CSIDL_PERSONAL, NULL, 0, mydocsdir ) ) ) {
-				path.clear();
 				path( DirectoryCleaned( mydocsdir ), "My Games/", ( prefix + 1 ), '/' );
 				// win32: only add it if it already exists
 				if ( file_is_directory( path ) ) {
