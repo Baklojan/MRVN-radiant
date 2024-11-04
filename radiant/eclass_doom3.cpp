@@ -339,7 +339,7 @@ static bool EntityClass_parse( EntityClass& entityClass, Tokeniser& tokeniser ){
 
 		if ( currentString != 0 && string_equal( key, "\\" ) ) {
 			tokeniser.nextLine();
-			*currentString <<' ';
+			*currentString << ' ';
 			PARSE_RETURN_FALSE_IF_FAIL( EntityClassDoom3_parseString( tokeniser, *currentString ) );
 			continue;
 		}

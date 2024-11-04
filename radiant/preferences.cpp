@@ -179,7 +179,7 @@ bool Preferences_Save( PreferenceDictionary& preferences, const char* filename )
 }
 
 bool Preferences_Save_Safe( PreferenceDictionary& preferences, const char* filename ){
-	const auto tmpName = StringOutputStream()( filename, "TMP" );
+	const auto tmpName = StringStream( filename, "TMP" );
 	return Preferences_Save( preferences, tmpName ) && file_move( tmpName, filename );
 }
 
@@ -218,7 +218,7 @@ void CGameDialog::LoadPrefs(){
 void CGameDialog::SavePrefs(){
 	const auto strGlobalPref = StringStream( g_Preferences.m_global_rc_path, "global.pref" );
 
-	globalOutputStream() << "saving global preferences to " << strGlobalPref << "\n";
+	globalOutputStream() << "saving global preferences to " << strGlobalPref << '\n';
 
 	if ( !Preferences_Save_Safe( g_global_preferences, strGlobalPref ) ) {
 		globalOutputStream() << "failed to save global preferences to " << strGlobalPref << '\n';

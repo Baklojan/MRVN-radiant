@@ -245,7 +245,7 @@ public:
 			desc = StringRange( data, length );
 		}
 		else{ // in case of special symbols, e.g. &quot, &apos, &lt, &gt, &amp, xml writes in a few steps
-			desc = StringStream()( desc, StringRange( data, length ) );
+			desc = StringStream( desc, StringRange( data, length ) );
 		}
 
 		return m_comment.write( data, length );

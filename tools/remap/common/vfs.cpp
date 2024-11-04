@@ -206,7 +206,7 @@ std::vector<CopiedString> vfsListShaderFiles( const char *shaderPath ){
 	};
 	/* search in dirs */
 	for ( const auto& strdir : g_strDirs ){
-		GDir* dir = g_dir_open(StringStream(strdir, shaderPath, '/' ), 0, NULL );
+		GDir *dir = g_dir_open( StringStream( strdir, shaderPath, '/' ), 0, NULL );
 
 		if ( dir != NULL ) {
 			const char* name;

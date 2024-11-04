@@ -1382,7 +1382,7 @@ void Face_setTexture( Face& face, const char* shader, const FaceTexture& clipboa
 			}
 
 			const Quaternion rotation = quaternion_for_unit_vectors( clipboard.m_plane.normal(), face.getPlane().plane3().normal() );
-//			globalOutputStream() << "rotation: " << rotation.x() << ' ' << rotation.y() << ' ' << rotation.z() << ' ' << rotation.w() << ' ' << "\n";
+//			globalOutputStream() << "rotation: " << rotation.x() << ' ' << rotation.y() << ' ' << rotation.z() << ' ' << rotation.w() << ' ' << '\n';
 			Matrix4 transform = g_matrix4_identity;
 			matrix4_pivoted_rotate_by_quaternion( transform, rotation, line.origin );
 

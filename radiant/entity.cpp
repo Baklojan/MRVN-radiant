@@ -171,7 +171,7 @@ void Scene_EntitySetKeyValue_Selected( const char* key, const char* value ){
 
 void Scene_EntitySetClassname_Selected( const char* classname ){
 	if ( GlobalSelectionSystem().countSelected() > 0 ) {
-		StringOutputStream command(64);
+		StringOutputStream command( 64 );
 		if( string_equal( classname, "worldspawn" ) )
 			command << "ungroupSelectedEntities";
 		else

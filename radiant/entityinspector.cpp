@@ -613,7 +613,7 @@ public:
 			if ( !string_parse_vector3( value, x_y_z ) ) {
 				x_y_z = DoubleVector3( 0, 0, 0 );
 			}
-			StringOutputStream buffer(32);
+			StringOutputStream buffer( 32 );
 
 			buffer( x_y_z.x() );
 			m_vector3.m_x->setText( buffer.c_str() );

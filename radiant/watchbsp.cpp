@@ -606,7 +606,7 @@ void CWatchBSP::DoEBeginStep(){
 
 	if ( !m_bBSPPlugin ) {
 		globalOutputStream() << "=== running build command ===\n"
-			                 << m_commands[m_iCurrentStep] << '\n';
+		                     << m_commands[m_iCurrentStep] << '\n';
 
 		if ( !Q_Exec( NULL, const_cast<char*>( m_commands[m_iCurrentStep].c_str() ), NULL, true, false ) ) {
 			const auto msg = StringStream( "Failed to execute the following command: ", m_commands[m_iCurrentStep],

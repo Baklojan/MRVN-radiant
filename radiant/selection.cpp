@@ -545,7 +545,7 @@ public:
 		m_bounds = bounds;
 	}
 	void Transform( const Matrix4& manip2object, const Matrix4& device2manip, const float x, const float y, const bool snap, const bool snapbbox, const bool alt ){
-		//globalOutputStream() << "manip2object: " << manip2object << "  device2manip: " << device2manip << "  x: " << x << "  y:" << y <<'\n';
+		//globalOutputStream() << "manip2object: " << manip2object << "  device2manip: " << device2manip << "  x: " << x << "  y:" << y << '\n';
 		Vector3 current = point_on_axis( m_axis, device2manip, x, y );
 		Vector3 delta = vector3_subtracted( current, m_start );
 
@@ -559,7 +559,7 @@ public:
 				start[i] = GetSnapGridSize();
 			}
 		}
-		//globalOutputStream() << "m_start: " << m_start << "   start: " << start << "   delta: " << delta <<'\n';
+		//globalOutputStream() << "m_start: " << m_start << "   start: " << start << "   delta: " << delta << '\n';
 		/* boundless way */
 		Vector3 scale(
 		    start[0] == 0 ? 1 : 1 + delta[0] / start[0],
@@ -583,7 +583,7 @@ public:
 				}
 			}
 		}
-		//globalOutputStream() << "scale: " << scale <<'\n';
+		//globalOutputStream() << "scale: " << scale << '\n';
 		m_scalable.scale( scale );
 	}
 
@@ -643,7 +643,7 @@ public:
 		    start[2] == 0 ? 1 : 1 + delta[2] / start[2]
 		);
 
-		//globalOutputStream() << "m_start: " << m_start << "   start: " << start << "   delta: " << delta <<'\n';
+		//globalOutputStream() << "m_start: " << m_start << "   start: " << start << "   delta: " << delta << '\n';
 		for( std::size_t i = 0; i < 3; i++ ){
 			if( m_chosen_extent[i] > 0.0625f && start[i] != 0.f ){
 				scale[i] = ( m_chosen_extent[i] + delta[i] ) / m_chosen_extent[i];
@@ -653,14 +653,14 @@ public:
 				}
 			}
 		}
-		//globalOutputStream() << "pre snap scale: " << scale <<'\n';
+		//globalOutputStream() << "pre snap scale: " << scale << '\n';
 		if( snap ){
 			float bestscale = ignore_axis != 0 ? scale[0] : scale[1];
 			for( std::size_t i = ignore_axis != 0 ? 1 : 2; i < 3; i++ ){
 				if( ignore_axis != i && fabs( scale[i] ) < fabs( bestscale ) ){
 					bestscale = scale[i];
 				}
-				//globalOutputStream() << "bestscale: " << bestscale <<'\n';
+				//globalOutputStream() << "bestscale: " << bestscale << '\n';
 			}
 			for( std::size_t i = 0; i < 3; i++ ){
 				if( ignore_axis != i ){
@@ -668,7 +668,7 @@ public:
 				}
 			}
 		}
-		//globalOutputStream() << "scale: " << scale <<'\n';
+		//globalOutputStream() << "scale: " << scale << '\n';
 		m_scalable.scale( scale );
 	}
 	void SetAxes( const Vector3& axis, const Vector3& axis2 ){
@@ -1239,7 +1239,7 @@ void BestPoint( std::size_t count, Vector4 clipped[9], SelectionIntersection& be
 			plaine = plane3_for_points( normalised[0], normalised[1], normalised[2] );
 			plane = &plaine;
 		}
-//globalOutputStream() << plane.a <<' ' << plane.b <<' ' << plane.c <<' ' << '\n';
+//globalOutputStream() << plane.a << ' ' << plane.b << ' ' << plane.c << ' ' << '\n';
 		const point_iterator_t end = normalised + count;
 		for ( point_iterator_t previous = end - 1, current = normalised; current != end; previous = current, ++current )
 		{
@@ -7355,7 +7355,7 @@ public:
 		}
 	}
 	void outputTranslation( TextOutputStream& ostream ){
-		ostream << " -xyz " << m_translation.x() <<' ' << m_translation.y() <<' ' << m_translation.z();
+		ostream << " -xyz " << m_translation.x() << ' ' << m_translation.y() << ' ' << m_translation.z();
 	}
 	void rotate( const Quaternion& rotation ){
 		if ( !nothingSelected() ) {
@@ -7385,7 +7385,7 @@ public:
 		}
 	}
 	void outputRotation( TextOutputStream& ostream ){
-		ostream << " -eulerXYZ " << m_rotation.x() <<' ' << m_rotation.y() <<' ' << m_rotation.z();
+		ostream << " -eulerXYZ " << m_rotation.x() << ' ' << m_rotation.y() << ' ' << m_rotation.z();
 	}
 	void scale( const Vector3& scaling ){
 		if ( !nothingSelected() ) {
@@ -7412,7 +7412,7 @@ public:
 		}
 	}
 	void outputScale( TextOutputStream& ostream ){
-		ostream << " -scale " << m_scale.x() <<' ' << m_scale.y() <<' ' << m_scale.z();
+		ostream << " -scale " << m_scale.x() << ' ' << m_scale.y() << ' ' << m_scale.z();
 	}
 
 	void skew( const Skew& skew ){

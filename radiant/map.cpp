@@ -1539,11 +1539,11 @@ tryDecompile:
 	if ( path_extension_is( filename, "bsp" ) || path_extension_is( filename, "map" ) ) {
 		StringOutputStream str( 256 );
 		str << AppPath_get() << "q3map2." << RADIANT_EXECUTABLE
-			<< " -v -game " << ((type && *type) ? type : "quake3")
-			<< " -fs_basepath " << makeQuoted(EnginePath_get())
-			<< " -fs_homepath " << makeQuoted(g_qeglobals.m_userEnginePath)
-			<< " -fs_game " << gamename_get()
-			<< " -convert -format " << (BrushType_getTexdefType(GlobalBrushCreator().getFormat()) == TEXDEFTYPEID_QUAKE ? "map" : "map_bp");
+		<< " -v -game " << ((type && *type) ? type : "quake3")
+		<< " -fs_basepath " << makeQuoted(EnginePath_get())
+		<< " -fs_homepath " << makeQuoted(g_qeglobals.m_userEnginePath)
+		<< " -fs_game " << gamename_get()
+		<< " -convert -format " << (BrushType_getTexdefType(GlobalBrushCreator().getFormat()) == TEXDEFTYPEID_QUAKE ? "map" : "map_bp");
 		if ( path_extension_is( filename, "map" ) ) {
 			str << " -readmap ";
 		}
@@ -1929,7 +1929,7 @@ void Scene_FindEntityBrush( std::size_t entity, std::size_t brush, scene::Path& 
 	path.push( makeReference( GlobalSceneGraph().root() ) );
 
 	Node_getTraversable( path.top() )->traverse( EntityFindByIndexWalker( entity, path ) );
-	
+
 	if ( path.size() == 2 ) {
 		scene::Traversable* traversable = Node_getTraversable( path.top() );
 		if ( traversable != 0 ) {
@@ -2166,8 +2166,8 @@ void map_autocaulk_selected(){
 		file << "\n}\n";
 		// spawn
 		file << "{\n"
-		        "\"classname\" \"info_player_start\'\n'
-		        "\"origin\" \"" << spawn[0] << ' ' << spawn[1] << ' ' << spawn[2] << "\'\n'
+		        "\"classname\" \"info_player_start\"\n"
+		        "\"origin\" \"" << spawn[0] << ' ' << spawn[1] << ' ' << spawn[2] << "\"\n"
 		        "}\n";
 		// point entities
 		const MapFormat& format = MapFormat_forFile( filename );
