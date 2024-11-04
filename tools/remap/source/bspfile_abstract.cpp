@@ -147,7 +147,7 @@ void WriteBSPFile(const char *filename) {
     char tempname[1024];
     time_t tm;
 
-    Sys_Printf("Writing %s... ", filename);
+    Sys_Printf( "Writing %s... ", filename );
 
     /* dummy check */
     if (g_game == NULL || g_game->write == NULL) {
